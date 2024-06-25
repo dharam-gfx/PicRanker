@@ -10,7 +10,7 @@ tailwind.config = {
     darkMode: 'class'
 }
 
-/**
+/*
  * Toggles between light and dark mode.
  * The mode is stored in local storage.
  */
