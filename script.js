@@ -25,7 +25,9 @@ const toggleThemeBtn = document.getElementById( "toggleThemeBtn" );
         toggleThemeBtn.checked = true;
     }
 } )();
-// Function to toggle between light and dark mode
+
+//* Toggles between light and dark mode.
+
 function toggleDarkMode() {
     // Check if dark mode is currently enabled
     const isDarkMode = rootElement.classList.contains( 'dark' );
@@ -35,55 +37,101 @@ function toggleDarkMode() {
     localStorage.setItem( 'darkMode', isDarkMode ? 'light' : 'dark' );
 }
 
+//* Get references to the necessary DOM elements
 const uploadBtn = document.getElementById( 'uploadBtn' );
-const categoryImageContainer = document.querySelector( '.category-image' );
-const  imagePreviewContainer = document.querySelector( '.image-preview-container' )
+const imagePreviewContainer = document.querySelector( '.image-preview-container' );
+const addCategories = document.getElementById( 'addCategories' );
+const categoryItems = document.querySelector( '.category-items' );
+const categoryContainer = document.querySelector( '.category-container' );
+const uploadContainer = document.querySelector( '.upload-container' );
+
+//* Add event listener for upload button click event
 uploadBtn.addEventListener( 'click', () => {
     const files = document.getElementById( 'files' ).files;
-    console.log(files);
+    files[0] && uploadContainer.children[0].classList.remove( 'hidden' );
     const date = Date.now();
-    Array.from( files ).forEach( ( file, index ) => {
-        console.log( file );
+    files.length && Array.from( files ).forEach( ( file, index ) => {
         const reader = new FileReader();
         reader.readAsDataURL( file );
+        //* Add event listener for reader onload event
         reader.onload = () => {
             const image = document.createElement( 'img' );
             image.src = reader.result;
-            image.classList.add( 'w-1/5' );
+            image.classList.add( 'sm:w-[130px]','w-1/4' );
             image.id = `image-preview-${index + date}`;
             image.draggable = true;
-            console.log( image );
+
+            //* Add event listener for image dragstart event
             image.addEventListener( 'dragstart', ( event ) => {
                 event.dataTransfer.setData( 'text', event.target.id );
-                console.log( "dragstart", event.target.id );
             } )
             imagePreviewContainer.appendChild( image );
         }
     } );
+} );
+
+//* Add event listener for addCategories button click event
+addCategories.addEventListener( 'click', ( event ) => {
+    const categories = document.getElementById( 'categories' ).value;
+    const color = document.getElementById( 'colorPicker' ).value;
+    // Validate input
+    if ( categories.trim().length === 0 ) {
+        alert( 'Please enter a valid category' );
+        return;
+    }
+    categoryContainer.classList.remove( 'hidden' );
+
+    const item = `<div class="category-item mb-3">
+                <div class="category flex gap-4 p-2 bg-[${color}] rounded-md">
+                    <div class="category-name flex justify-center items-center">
+                        <h3 class="text-xl font-bold">${categories}</h3>
+                    </div>
+                    <div class="category-image rounded-md flex-1 flex flex-wrap gap-4 justify-center" draggable="true">
+                    </div>
+                </div>
+            </div>`;
+    // Add category item to category container
+    const htmlItem = domParser( item );
+    const categoryImageContainer = htmlItem.querySelector( '.category-image' );
+
+     //* Add event listener for categoryImageContainer dragenter event
+     categoryImageContainer.addEventListener( "dragenter", function ( event ) {
+        event.target.classList.add( "bg-gray-500" );
+    } );
+
+    //* Add event listener for categoryImageContainer dragleave event
+    categoryImageContainer.addEventListener( "dragleave", function ( event ) {
+        event.target.classList.remove( "bg-gray-500" );
+    } );
+
+    //* Add event listener for categoryImageContainer drop event
+    categoryImageContainer.addEventListener( "drop", function ( event ) {
+        event.preventDefault();
+        const id = event.dataTransfer.getData( 'text' );
+        const image = document.getElementById( id );
+        this.appendChild( image );
+        event.target.classList.remove( "bg-gray-500" );
+    } );
+
+    categoryItems.appendChild( htmlItem );
+
 } )
 
-document.addEventListener( 'dragend', ( event ) => {
-    console.log( "dragend", event.target.id );
-} );
+//* Add event listener for document dragover event
 document.addEventListener( "dragover", function ( event ) {
     event.preventDefault();
 } );
 
-categoryImageContainer.addEventListener( "dragenter", function ( event ) {
-    console.log( event.target.classList );
-    event.target.classList.add( "bg-gray-500" );
+// document.addEventListener( 'dragend', ( event ) => {
+//     console.log( "dragend", event.target.id );
+// } );
 
-} );
-categoryImageContainer.addEventListener( "dragleave", function ( event ) {
-    console.log( event.target.classList );
-    event.target.classList.remove( "bg-gray-500" );
+//* Parses an HTML string into a DOM element.
+function domParser( str ) {
+    // Use DOMParser to parse the HTML string into a Document object
+    const parser = new DOMParser();
+    const doc = parser.parseFromString( str, 'text/html' );
+    // Return the first child element of the Document's body
+    return Array.from( doc.body.children )[0];
+}
 
-} );
-
-categoryImageContainer.addEventListener( "drop", function ( event ) {
-    event.preventDefault();
-    const id = event.dataTransfer.getData( 'text' );
-    const image = document.getElementById( id );
-    categoryImageContainer.appendChild( image );
-    console.log( "drop", id );
-})

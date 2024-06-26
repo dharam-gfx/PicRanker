@@ -19,12 +19,12 @@
         }
 
         #colorPicker::-webkit-color-swatch {
-            border-radius: 50%;
+            border-radius: 20%;
             border: 3px solid #ffbb01;
         }
 
         #colorPicker::-moz-color-swatch {
-            border-radius: 50%;
+            border-radius: 20%;
             border: 3px solid #ffbb01;
         }
     </style>
@@ -36,7 +36,7 @@
         class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./assets/logo.jpg" class="h-10 rounded rounded-lg" alt="PicRanker Logo">
             </a>
 
@@ -54,7 +54,7 @@
                 </a>
                 <!-- twitter -->
                 <a class="text-muted inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                    aria-label="Twitter" href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                    aria-label="Twitter" href="https://x.com/dharam_gfx" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
                         <path
@@ -64,7 +64,7 @@
                 </a>
                 <!-- instagram -->
                 <a class="text-muted inline-flex items-center rounded-lg p-2.5 text-sm hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-700"
-                    aria-label="Instagram" href="#" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                    aria-label="Instagram" href="https://www.instagram.com/dharam_gfx" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                         height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6">
                         <path d="M4 4m0 4a4 4 0 0 1 4 -4h8a4 4 0 0 1 4 4v8a4 4 0 0 1 -4 4h-8a4 4 0 0 1 -4 -4z"></path>
@@ -104,51 +104,47 @@
     <!-- Main start-->
     <main class="mt-24 max-w-screen-xl mx-auto p-4">
         <div>
+            <!-- Add Categories -->
             <div class="mb-6 flex flex-wrap items-center">
-                <div class=" w-full max-w-sm">
+                <div class=" w-full max-w-md">
                     <label for="categories" class="block mb-2 text-md font-medium text-gray-900 dark:text-white">Add
                         Categories</label>
                     <div class="flex">
+                        <!-- Input field -->
                         <input type="text" id="categories" placeholder="Enter Categories Name"
-                        class="bg-gray-50 block mr-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full max-w-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <input title="choose color" class="w-10 h-10 block" type="color" value="#ff0101" id="colorPicker" />
+                            class="bg-gray-50 block mr-3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full max-w-sm p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <input title="choose color" class="w-10 h-11 block" type="color" value="#ff0101"
+                            id="colorPicker" />
                     </div>
                 </div>
-            <div class="flex-1 pt-4 sm:pt-9  sm:pl-3">
-                <button type="button" id="addCategories"
-                class="focus:outline-none text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:focus:ring-green-900">Add</button>
-            </div>
-            </div>
-        </div>
-        <div class="category-container">
-            <h2 class="text-2xl font-bold pb-2">Categories List</h2>
-            <div class="category-item">
-                <div class="category flex gap-4 p-2 bg-green-500 rounded-md">
-                    <div class="category-name flex justify-center items-center">
-                        <h3 class="text-xl font-bold">Good</h3>
-                    </div>
-                    <div class="category-image rounded-md flex-1 flex flex-wrap gap-4 justify-center" draggable="true">
-                        <!-- <img class="w-1/5" src="./assets/logo.jpg" alt="" id="image-preview-1">
-                        <img class="w-1/5" src="./assets/logo.jpg" alt="" id="image-preview-1">
-                        <img class="w-1/5" src="./assets/logo.jpg" alt="" id="image-preview-1">
-                        <img class="w-1/5" src="./assets/logo.jpg" alt="" id="image-preview-1"> -->
-                    </div>
+                <div class="flex-1 pt-4 sm:pt-9 ">
+                    <!-- Add button -->
+                    <button type="button" id="addCategories"
+                        class="focus:outline-none text-white bg-green-400 hover:bg-green-500 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:focus:ring-green-900">Add</button>
                 </div>
             </div>
         </div>
+        <!-- Category Container -->
+        <div class="category-container hidden">
+            <h2 class="text-2xl font-bold pb-2">Categories</h2>
+            <div class="category-items">
+            </div>
+        </div>
+        <!-- Upload Container -->
         <div class="upload-container">
-            <h2 class="text-md font-bold">Image Preview</h2>
+            <h2 class="text-2xl font-bold hidden mb-3">Image Preview</h2>
             <div class="image-preview-container flex flex-wrap gap-4 justify-center">
-                <img class="w-1/5" src="./assets/logo.jpg" alt="" id="image-preview-1">
             </div>
             <div class="upload">
-                <label class="block mb-2 text-md font-medium text-gray-900 dark:text-white" for="default_size">Select
-                    multiple images</label>
+                <label class="block my-3 text-md font-medium text-gray-900 dark:text-white" for="default_size">Upload
+                    images</label>
+                <!-- Input field -->
                 <input
-                    class="p-2 mr-3 mb-5 text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                    class="p-2 mr-3 mb-5 w-full max-w-sm text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
                     id="files" type="file" multiple>
+                <!-- Upload button -->
                 <button type="button" id="uploadBtn"
-                    class="focus:outline-none text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-orange-900">Upload</button>
+                    class="focus:outline-none  text-white bg-orange-400 hover:bg-orange-500 focus:ring-4 focus:ring-orange-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:focus:ring-orange-900">Upload</button>
             </div>
         </div>
 
