@@ -4,7 +4,7 @@ PicRanker is a user-friendly app designed for categorizing and managing images w
 
 ## Demo Image
 
-![PicRanker Demo](./assets/demo.png)
+![PicRanker Demo](https://raw.githubusercontent.com/dharam-gfx/PicRanker/master/assets/PicRanker_Demo.gif)
 
 ## Features
 
