@@ -1,6 +1,6 @@
 # PicRanker
 
-PicRanker is a user-friendly app designed for categorizing and managing images with ratings. Users can add images and categorize them as average, good, trash, or bad, using a simple drag and drop interface.
+PicRanker is a user-friendly app designed for categorizing and managing images with ratings. Users can add images and categorize them as average, good, trash, or bad, using a simple drag and drop interface. Now featuring both light and dark modes to enhance your user experience!
 
 ## Demo Image
 
@@ -10,6 +10,7 @@ PicRanker is a user-friendly app designed for categorizing and managing images w
 
 - **Add Images**: Easily upload your images to the app.
 - **Categorize Images**: Drag and drop images into categories: Average, Good, Trash, or Bad.
+- **Light and Dark Mode**: Switch between light and dark mode to suit your preference.
 
 ## Technologies Used
 
@@ -31,7 +32,7 @@ Make sure you have the following software installed on your machine:
 
 1. **Clone the repository:**
     ```sh
-    https://github.com/dharam-gfx/PicRanker.git
+    git clone https://github.com/dharam-gfx/PicRanker.git
     ```
 2. **Navigate to the project directory:**
     ```sh
@@ -48,6 +49,7 @@ Make sure you have the following software installed on your machine:
 1. **Add Images**: Click on the "Add Image" button or drag and drop images directly into the app.
 2. **Categorize**: Drag and drop images into the desired category area: Average, Good, Trash, Bad.
 3. **Drop Image**: To remove an image, drag it out of the category areas or use the provided delete option.
+4. **Toggle Light/Dark Mode**: Use the toggle switch to switch between light and dark mode.
 
 ## Contributing
 
