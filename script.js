@@ -57,7 +57,7 @@ uploadBtn.addEventListener( 'click', () => {
         reader.onload = () => {
             const image = document.createElement( 'img' );
             image.src = reader.result;
-            image.classList.add( 'sm:w-[130px]','w-1/4' );
+            image.classList.add( 'sm:w-[130px]', 'w-1/4' );
             image.id = `image-preview-${index + date}`;
             image.draggable = true;
 
@@ -94,8 +94,8 @@ addCategories.addEventListener( 'click', ( event ) => {
     const htmlItem = domParser( item );
     const categoryImageContainer = htmlItem.querySelector( '.category-image' );
 
-     //* Add event listener for categoryImageContainer dragenter event
-     categoryImageContainer.addEventListener( "dragenter", function ( event ) {
+    //* Add event listener for categoryImageContainer dragenter event
+    categoryImageContainer.addEventListener( "dragenter", function ( event ) {
         event.target.classList.add( "bg-gray-500" );
     } );
 
